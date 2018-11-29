@@ -14,7 +14,7 @@ def main(endpoint, req_attempts):
     for counter in range(req_attempts):
         total_count += 1
         request = requests.get(endpoint)
-        result = string.strip(request.text)
+        result = request.headers['X-Hostname']
         if result in results:
             results[result] += 1
         else:
